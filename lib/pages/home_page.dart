@@ -13,17 +13,15 @@ class HomePage extends StatelessWidget {
       ),
       drawer: MyDrawerWitget(),
       body: Padding(
-        padding: const EdgeInsets.all(14.0),
+        padding: EdgeInsets.all(14.0),
         child: Column(
           children: [
-            Container(
-              child: Text(
+            Text(
                 "Configuracion General",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold
                 ),
-              ),
             ),
             SizedBox(height: 12,),
             TextField(
