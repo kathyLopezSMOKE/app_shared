@@ -1,7 +1,9 @@
+import 'package:app_shared/witgets/my_drawer_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  //const HomePage({super.key});
+  bool isDarkMode= false;
 
   @override
   Widget build(BuildContext context) {
@@ -9,81 +11,40 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Shared Preference"),
       ),
-      drawer: Drawer(
+      drawer: MyDrawerWitget(),
+      body: Padding(
+        padding: const EdgeInsets.all(14.0),
         child: Column(
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage("https://images.pexels.com/photos/688574/pexels-photo-688574.jpeg"),
-                ),
-              ),
-              child: SizedBox(
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Colors.amber,
-                      backgroundImage: NetworkImage(
-                        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
-                      ),
-                    ),
-                    Text(
-                      "Fiorela Rojas Padilla",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Administrador",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
+            Container(
+              child: Text(
+                "Configuracion General",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold
                 ),
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.people_alt),
-              title: Text(
-                "Mi profile",
+            SizedBox(height: 12,),
+            TextField(
+              decoration: InputDecoration(
+                hintText: "Nombre Completo",
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.file_copy),
-              title: Text(
-                "Portfolio",
+            SizedBox(height: 12,),
+            TextField(
+              decoration: InputDecoration(
+                hintText: "Direccion Actual",
               ),
-            ),
-            ListTile(
-              leading: Icon(Icons.lock),
-              title: Text(
-                "Changes Password",
-              ),
-            ),
-            Divider(indent: 20,endIndent: 20,),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text(
-                "Logout",
-              ),
+            ),  
+            SizedBox(height: 12,),
+            SwitchListTile(
+              title: Text("Modo oscuro"),
+              value: isDarkMode, 
+              onChanged: (bool value){}
             ),
           ],
         ),
-      ),
-      body: Column(
-        children: [
-          Text("Hola"),
-        ],
       ),
     );
   }
